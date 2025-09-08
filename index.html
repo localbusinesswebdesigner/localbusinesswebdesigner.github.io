@@ -788,41 +788,36 @@
 
     <div class="row justify-content-center">
       <div class="col-lg-8">
-        <form 
-          action="https://formsubmit.co/ncamiso.nkuna@gmail.com" 
-          method="POST" 
-          id="contactForm" 
-          class="contact-form"
-        >
-          <!-- Disable captcha -->
-          <input type="hidden" name="_captcha" value="false" />
-          <input type="hidden" name="_captcha" value="false"> <!-- disables captcha -->
-          <!-- Subject for emails -->
-          <input type="hidden" name="_subject" value="New contact form submission from Local Business Web Design" />
+        
+      <form action="https://formsubmit.co/ncamiso.nkuna@gmail.com" method="POST" class="contact-form">
+      <input type="hidden" name="_subject" value="New Contact Form Submission">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
 
-          <div class="mb-3">
-            <input type="text" class="form-control" name="name" placeholder="Your Name" required>
-          </div>
-          <div class="mb-3">
-            <input type="email" class="form-control" name="email" placeholder="Your Email" required>
-          </div>
-          <div class="mb-3">
-            <input type="tel" class="form-control" name="phone" placeholder="Your Phone">
-          </div>
-          <div class="mb-3">
-            <select class="form-select" name="service" required>
-              <option value="" selected disabled>Select Service</option>
-              <option value="frontend">Frontend Development</option>
-              <option value="payment">Payment Integration</option>
-              <option value="forms">Form Handling</option>
-              <option value="other">Other</option>
-            </select>
-          </div>
-          <div class="mb-3">
-            <textarea class="form-control" rows="5" name="message" placeholder="Your Message" required></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary w-100">Send Message</button>
-        </form>
+      <label>Full Name *</label>
+      <input type="text" name="name" required>
+
+      <label>Email *</label>
+      <input type="email" name="email" required>
+
+      <label>Phone</label>
+      <input type="tel" name="phone">
+
+      <label>Interested In</label>
+      <select name="service">
+        <option value="">Select a service</option>
+        <option value="Frontend Development/Web Development">Frontend Development/Web Development</option>
+        <option value="Payment Integration">Payment Integration</option>
+        <option value="Form Handling">Form Handling</option>
+         <option value="other">Other</option>
+        
+      </select>
+
+      <label>Message *</label>
+      <textarea name="message" required></textarea>
+
+      <button type="submit" class="submit-btn">Send Message</button>
+    </form>
       </div>
     </div>
   </div>
@@ -926,6 +921,7 @@
 
 </body>
 </html>
+
 
 
 
