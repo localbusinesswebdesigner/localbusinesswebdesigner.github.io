@@ -899,15 +899,6 @@
       }, 800, 'swing');
     });
     
-    // Form submission handling
-    $('#contactForm').on('submit', function(e){
-      // For demo purposes, we'll show a thank you message
-      // In production, this form will submit to FormSubmit
-      e.preventDefault();
-      alert('Thank you for your message! We will contact you shortly.');
-      this.reset();
-    });
-    
     // Navbar background change on scroll
     $(window).scroll(function() {
       if ($(window).scrollTop() > 50) {
@@ -923,4 +914,5 @@
 </body>
 
 </html>
+
 
