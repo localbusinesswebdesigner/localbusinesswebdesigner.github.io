@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Local Business Web Design</title>
+  
+  <!-- SEO -->
+  <meta name="description" content="We build modern frontend websites with seamless payment integration and advanced form handling. Responsive, fast, and optimized for businesses.">
+  <meta name="keywords" content="frontend development, payment integration, web forms, responsive design, SEO optimization">
+  <meta name="author" content="TechWeb Solutions">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <style>
+    :root {
+      --primary-color: #2563eb;
+      --primary-dark: #1d4ed8;
+      --secondary-color: #8b5cf6;
+      --accent-color: #06b6d4;
+      --dark-color: #0f172a;
+      --light-color: #f8fafc;
+      --text-color: #334155;
+      --gradient: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text-color);
+      line-height: 1.6;
+      overflow-x: hidden;
+      background-color: var(--light-color);
+    }
+
+    .code-font {
+      font-family: 'Fira Code', monospace;
+    }
+
+    /* Header & Navigation */
+    header {
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .logo-icon {
+      color: var(--primary-color);
+      font-size: 2rem;
+    }
+
+    .logo-text {
+      font-weight: 700;
+      font-size: 1.5rem;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      margin: 0;
+    }
+
+    .nav-links a {
+      color: var(--dark-color);
+      text-decoration: none;
+      font-weight: 500;
+      position: relative;
+      padding: 0.5rem 0;
+      transition: all 0.3s ease;
+    }
+
+    .nav-links a:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background: var(--gradient);
+      transition: width 0.3s ease;
+      border-radius: 3px;
+    }
+
+    .nav-links a:hover:after,
+    .nav-links a.active:after {
+      width: 100%;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary-color);
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--primary-color);
+    }
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      background: 
+        linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.8)),
+        url('https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') no-repeat center center / cover;
+      display: flex;
+      align-items: center;
+      color: white;
+      padding-top: 76px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-content h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+
+    .hero-content h1 span {
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-content p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      max-width: 600px;
+    }
+
+    .typing-demo {
+      font-family: 'Fira Code', monospace;
+      color: var(--accent-color);
+      border-right: 2px solid;
+      white-space: nowrap;
+      overflow: hidden;
+      animation: typing 3s steps(28), blink .5s step-end infinite alternate;
+      margin-bottom: 1.5rem;
+      display: inline-block;
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+    
+    @keyframes blink {
+      50% { border-color: transparent }
+    }
+
+    .tech-badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      margin-right: 0.75rem;
+      margin-bottom: 0.75rem;
+      font-size: 0.9rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    /* Sections */
+    section {
+      padding: 6rem 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section-title h2 {
+      font-weight: 700;
+      font-size: 2.5rem;
+      color: var(--dark-color);
+      margin-bottom: 1rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title h2:after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: var(--gradient);
+      border-radius: 2px;
+    }
+
+    .section-title p {
+      color: var(--text-color);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* Services */
+    .service-card {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+      border-top: 4px solid transparent;
+      background-clip: padding-box;
+    }
+
+    .service-card:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--gradient);
+      transform: translateY(-4px);
+      transition: transform 0.3s ease;
+    }
+
+    .service-card:hover:before {
+      transform: translateY(0);
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .service-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .service-card h3 {
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--dark-color);
+    }
+
+    .service-card p {
+      color: var(--text-color);
+    }
+
+    /* Portfolio */
+    .portfolio-item {
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      margin-bottom: 2rem;
+      cursor: pointer;
+    }
+
+    .portfolio-img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .portfolio-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(37, 99, 235, 0.9);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .portfolio-item:hover .portfolio-overlay {
+      opacity: 1;
+    }
+
+    .portfolio-item:hover .portfolio-img {
+      transform: scale(1.1);
+    }
+
+    .portfolio-overlay h3 {
+      color: white;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .portfolio-overlay p {
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 1.5rem;
+    }
+
+    /* Modal */
+    .portfolio-modal .modal-content {
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .portfolio-modal .modal-header {
+      border-bottom: none;
+      padding: 1.5rem 1.5rem 0;
+    }
+
+    .portfolio-modal .modal-body {
+      padding: 1.5rem;
+    }
+
+    .portfolio-modal .modal-footer {
+      border-top: none;
+      padding: 0 1.5rem 1.5rem;
+    }
+
+    .portfolio-modal img {
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+
+    .portfolio-modal .tech-used {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 1rem 0;
+    }
+
+    .portfolio-modal .tech-used span {
+      background: var(--gradient);
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 50px;
+      font-size: 0.85rem;
+    }
+
+    /* Contact Form */
+    .contact-form {
+      background: white;
+      padding: 3rem;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    .form-control {
+      padding: 0.75rem 1rem;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .form-control:focus {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+    }
+
+    .btn-primary {
+      background: var(--gradient);
+      border: none;
+      padding: 0.75rem 2rem;
+      font-weight: 600;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--dark-color);
+      color: white;
+      padding: 4rem 0 2rem;
+    }
+
+    .footer-links {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent-color);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+    }
+
+    .social-links a:hover {
+      background: var(--primary-color);
+      transform: translateY(-3px);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .hero-content h1 {
+        font-size: 2.8rem;
+      }
+      
+      .nav-links {
+        gap: 1.5rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 76px;
+        left: -100%;
+        width: 80%;
+        height: calc(100vh - 76px);
+        background: white;
+        flex-direction: column;
+        padding: 2rem;
+        box-shadow: 5px 0 15px rgba(0, 0, 0, 0.1);
+        transition: left 0.3s ease;
+        z-index: 999;
+      }
+
+      .nav-links.active {
+        left: 0;
+      }
+
+      .hero-content h1 {
+        font-size: 2.2rem;
+      }
+
+      .hero-content p {
+        font-size: 1.1rem;
+      }
+
+      .section-title h2 {
+        font-size: 2rem;
+      }
+
+      .contact-form {
+        padding: 2rem;
+      }
+    }
+
+    @media (max-width: 576px) {
+      header {
+        padding: 1rem;
+      }
+      
+      .hero-content h1 {
+        font-size: 1.8rem;
+      }
+      
+      .tech-badge {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <i class="fas fa-code logo-icon"></i>
+    <span class="logo-text">Local Business Web Design</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#about" class="active">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="menu-toggle" aria-label="Toggle menu"><i class="fas fa-bars"></i></button>
+</header>
+
+<div class="hero">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 hero-content">
+        <div class="typing-demo">console.log("Welcome To Local Business Web Design");</div>
+        <h1>We Build <span>Modern Frontend</span> Solutions With Secure Payments</h1>
+        <p>Specializing in responsive design, seamless payment integrations, and reliable form handling to power your business online.</p>
+        <a href="#contact" class="btn btn-primary btn-lg me-3">Get in Touch</a>
+        <a href="#portfolio" class="btn btn-outline-light btn-lg">View Our Work</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="about">
+  <div class="container">
+    <div class="section-title">
+      <h2>About Us</h2>
+      <p>We focus on frontend development, payment solutions, and advanced form sending that make websites both beautiful and functional.</p>
+    </div>
+    <div class="row align-items-center">
+      <div class="col-lg-6 mb-5">
+        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1000&q=80" class="img-fluid rounded-3 shadow" alt="Our team">
+      </div>
+      <div class="col-lg-6">
+        <h3 class="mb-4">We Deliver Engaging & Functional Web Experiences</h3>
+        <ul class="list-unstyled">
+          <li class="mb-3"><i class="fas fa-code text-primary me-2"></i> Pixel-perfect frontend development</li>
+          <li class="mb-3"><i class="fas fa-credit-card text-primary me-2"></i> Payment integration (PayFast, PayPal, Stripe, any many more)</li>
+          <li class="mb-3"><i class="fas fa-paper-plane text-primary me-2"></i> Reliable form sending with validation</li>
+          <li class="mb-3"><i class="fas fa-mobile-alt text-primary me-2"></i> Responsive design for all devices</li>
+          <li class="mb-3"><i class="fas fa-search text-primary me-2"></i> SEO optimization for better visibility</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services" style="background:#f8fafc;">
+  <div class="container">
+    <div class="section-title">
+      <h2>Our Core Services</h2>
+    </div>
+    <div class="row">
+      <div class="col-md-4 mb-4">
+        <div class="service-card">
+          <i class="fas fa-laptop-code service-icon"></i>
+          <h3>Frontend Development</h3>
+          <p>Modern UI development using React, Vue, and Tailwind CSS for fast and responsive websites.</p>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="service-card">
+          <i class="fas fa-credit-card service-icon"></i>
+          <h3>Payment Integration</h3>
+          <p>Secure payment gateways (PayFast, Stripe, PayPal, Yoco and many more) integrated directly into your website or store.</p>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="service-card">
+          <i class="fas fa-paper-plane service-icon"></i>
+          <h3>Form Handling</h3>
+          <p>Custom contact and booking forms with backend/email sending & real-time validation.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="portfolio">
+  <div class="container">
+    <div class="section-title">
+      <h2>Our Projects</h2>
+      <p>Check out some of our recent web development projects. Click "View Details" to learn more.</p>
+    </div>
+    <div class="row">
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="portfolio-item" data-bs-toggle="modal" data-bs-target="#portfolioModal1">
+          <img src="https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="E-commerce website" class="portfolio-img">
+          <div class="portfolio-overlay">
+            <h3>Modern E-Commerce Store</h3>
+            <p>React-based online store with shopping cart and payment processing</p>
+            <div class="btn btn-light">View Details</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="portfolio-item" data-bs-toggle="modal" data-bs-target="#portfolioModal2">
+          <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Business dashboard" class="portfolio-img">
+          <div class="portfolio-overlay">
+            <h3>Business Analytics Dashboard</h3>
+            <p>Vue.js dashboard with data visualization and reporting features</p>
+            <div class="btn btn-light">View Details</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="portfolio-item" data-bs-toggle="modal" data-bs-target="#portfolioModal3">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Marketing website" class="portfolio-img">
+          <div class="portfolio-overlay">
+            <h3>Digital Marketing Platform</h3>
+            <p>Next.js website with blog and lead generation features</p>
+            <div class="btn btn-light">View Details</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Portfolio Modals -->
+<div class="modal fade portfolio-modal" id="portfolioModal1" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modern E-Commerce Store</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <img src="https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" class="img-fluid" alt="E-commerce website">
+        <h4>Project Overview</h4>
+        <p>This e-commerce platform was built for a local fashion retailer looking to expand their online presence. The website features a modern design with intuitive navigation and a seamless shopping experience.</p>
+        
+        <h4>Features</h4>
+        <ul>
+          <li>Product catalog with filtering and search</li>
+          <li>Shopping cart and checkout process</li>
+          <li>Payment integration with PayFast and PayPal</li>
+          <li>User account management</li>
+          <li>Order tracking system</li>
+          <li>Admin dashboard for inventory management</li>
+        </ul>
+        
+        <h4>Technologies Used</h4>
+        <div class="tech-used">
+          <span>React</span>
+          <span>Node.js</span>
+          <span>MongoDB</span>
+          <span>PayFast API</span>
+          <span>PayPal API</span>
+          <span>Bootstrap</span>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <a href="#contact" class="btn btn-primary" data-bs-dismiss="modal">Contact Us</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade portfolio-modal" id="portfolioModal2" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Business Analytics Dashboard</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" class="img-fluid" alt="Business dashboard">
+        <h4>Project Overview</h4>
+        <p>This analytics dashboard was developed for a financial services company to visualize their business data and track key performance indicators in real-time.</p>
+        
+        <h4>Features</h4>
+        <ul>
+          <li>Interactive data visualizations and charts</li>
+          <li>Customizable dashboard with drag-and-drop widgets</li>
+          <li>Real-time data updates</li>
+          <li>User role management and permissions</li>
+          <li>Data export functionality</li>
+          <li>Responsive design for desktop and mobile</li>
+        </ul>
+        
+        <h4>Technologies Used</h4>
+        <div class="tech-used">
+          <span>Vue.js</span>
+          <span>Chart.js</span>
+          <span>Firebase</span>
+          <span>REST API</span>
+          <span>Tailwind CSS</span>
+          <span>WebSockets</span>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <a href="#contact" class="btn btn-primary" data-bs-dismiss="modal">Contact Us</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade portfolio-modal" id="portfolioModal3" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Digital Marketing Platform</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" class="img-fluid" alt="Marketing website">
+        <h4>Project Overview</h4>
+        <p>This comprehensive digital marketing platform was created for a marketing agency to manage client campaigns, track performance, and generate reports.</p>
+        
+        <h4>Features</h4>
+        <ul>
+          <li>Campaign management system</li>
+          <li>Lead tracking and management</li>
+          <li>Automated reporting</li>
+          <li>SEO analysis tools</li>
+          <li>Client portal</li>
+          <li>Integration with social media APIs</li>
+        </ul>
+        
+        <h4>Technologies Used</h4>
+        <div class="tech-used">
+          <span>Next.js</span>
+          <span>TypeScript</span>
+          <span>PostgreSQL</span>
+          <span>GraphQL</span>
+          <span>Material UI</span>
+          <span>Google APIs</span>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <a href="#contact" class="btn btn-primary" data-bs-dismiss="modal">Contact Us</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="contact" style="background:#f8f9fa;">
+  <div class="container">
+    <div class="section-title">
+      <h2>Contact Us</h2>
+      <p>Send us your project details — we'll get back to you as soon as possible.</p>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <form action="https://formsubmit.co/localwebdesigns61@gmail.com" method="POST" id="contactForm" class="contact-form">
+          <!-- Disable captcha -->
+          <input type="hidden" name="_captcha" value="false">
+          <!-- Redirect after submit -->
+          <input type="hidden" name="_next" value="#thankyou">
+          <!-- Subject for emails -->
+          <input type="hidden" name="_subject" value="New contact form submission from Frontend Studio">
+
+          <div class="mb-3">
+            <input type="text" class="form-control" name="name" placeholder="Your Name" required>
+          </div>
+          <div class="mb-3">
+            <input type="email" class="form-control" name="email" placeholder="Your Email" required>
+          </div>
+          <div class="mb-3">
+            <input type="tel" class="form-control" name="phone" placeholder="Your Phone">
+          </div>
+          <div class="mb-3">
+            <select class="form-select" name="service" required>
+              <option value="" selected disabled>Select Service</option>
+              <option value="frontend">Frontend Development</option>
+              <option value="payment">Payment Integration</option>
+              <option value="forms">Form Handling</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <textarea class="form-control" rows="5" name="message" placeholder="Your Message" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 mb-4 mb-lg-0">
+        <h4 class="text-white mb-4">Local Business Web Design</h4>
+        <p>Building innovative web solutions with cutting-edge technologies to help businesses thrive in the digital world.</p>
+        <div class="social-links">
+          <a href="https://wa.me/27655531736" target="_blank"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://github.com/localbusinesswebdesigner"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+        <h5 class="text-white mb-4">Quick Links</h5>
+        <ul class="footer-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-4 mb-4 mb-md-0">
+        <h5 class="text-white mb-4">Services</h5>
+        <ul class="footer-links">
+          <li><a href="#services">Web Development</a></li>
+          <li><a href="#services">E-Commerce</a></li>
+          <li><a href="#services">SEO Optimization</a></li>
+          <li><a href="#services">Web Maintenance</a></li>
+          <li><a href="#services">Any Many More</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-4">
+        <h5 class="text-white mb-4">Contact Info</h5>
+        <ul class="footer-links">
+          <li><i class="fas fa-phone me-2"></i> +27 65 553 1736</li>
+          <li><i class="fas fa-envelope me-2"></i> localwebdesigns61@gmail.com</li>
+        </ul>
+      </div>
+    </div>
+    <hr class="my-4 bg-light">
+    <div class="text-center">
+      <p class="mb-0">&copy; LocalBusinessWebDesign. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- JS -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  $(document).ready(function(){
+    // Mobile menu toggle
+    $('.menu-toggle').click(function(){
+      $('.nav-links').toggleClass('active');
+      $(this).html($(this).html().includes('bars') ? 
+        '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>');
+    });
+    
+    // Close mobile menu when clicking on a link
+    $('.nav-links a').click(function(){
+      $('.nav-links').removeClass('active');
+      $('.menu-toggle').html('<i class="fas fa-bars"></i>');
+    });
+    
+    // Smooth scrolling
+    $('a[href*="#"]').on('click', function(e) {
+      if ($(this).attr('href') === '#thankyou') return;
+      
+      e.preventDefault();
+      var target = this.hash;
+      var $target = $(target);
+      $('html, body').animate({
+        'scrollTop': $target.offset().top - 80
+      }, 800, 'swing');
+    });
+    
+    // Form submission handling
+    $('#contactForm').on('submit', function(e){
+      // For demo purposes, we'll show a thank you message
+      // In production, this form will submit to FormSubmit
+      e.preventDefault();
+      alert('Thank you for your message! We will contact you shortly.');
+      this.reset();
+    });
+    
+    // Navbar background change on scroll
+    $(window).scroll(function() {
+      if ($(window).scrollTop() > 50) {
+        $('header').css('background', 'rgba(255, 255, 255, 0.98)');
+        $('header').css('box-shadow', '0 2px 20px rgba(0, 0, 0, 0.1)');
+      } else {
+        $('header').css('background', 'rgba(255, 255, 255, 0.95)');
+        $('header').css('box-shadow', '0 2px 10px rgba(0, 0, 0, 0.1)');
+      }
+    });
+  });
+</script>
+</body>
+</html>
