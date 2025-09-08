@@ -626,7 +626,7 @@
     <div class="row">
       <div class="col-md-6 col-lg-4 mb-4">
         <div class="portfolio-item" data-bs-toggle="modal" data-bs-target="#portfolioModal1">
-          <img src="https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="E-commerce website" class="portfolio-img">
+          <img src="https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="E-commerce website" class="portfolio-img" />
           <div class="portfolio-overlay">
             <h3>Modern E-Commerce Store</h3>
             <p>React-based online store with shopping cart and payment processing</p>
@@ -636,7 +636,7 @@
       </div>
       <div class="col-md-6 col-lg-4 mb-4">
         <div class="portfolio-item" data-bs-toggle="modal" data-bs-target="#portfolioModal2">
-          <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Business dashboard" class="portfolio-img">
+          <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Business dashboard" class="portfolio-img" />
           <div class="portfolio-overlay">
             <h3>Business Analytics Dashboard</h3>
             <p>Vue.js dashboard with data visualization and reporting features</p>
@@ -646,7 +646,7 @@
       </div>
       <div class="col-md-6 col-lg-4 mb-4">
         <div class="portfolio-item" data-bs-toggle="modal" data-bs-target="#portfolioModal3">
-          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Marketing website" class="portfolio-img">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Marketing website" class="portfolio-img" />
           <div class="portfolio-overlay">
             <h3>Digital Marketing Platform</h3>
             <p>Next.js website with blog and lead generation features</p>
@@ -667,7 +667,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <img src="https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" class="img-fluid" alt="E-commerce website">
+        <img src="https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" class="img-fluid" alt="E-commerce website" />
         <h4>Project Overview</h4>
         <p>This e-commerce platform was built for a local fashion retailer looking to expand their online presence. The website features a modern design with intuitive navigation and a seamless shopping experience.</p>
         
@@ -707,7 +707,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" class="img-fluid" alt="Business dashboard">
+        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" class="img-fluid" alt="Business dashboard" />
         <h4>Project Overview</h4>
         <p>This analytics dashboard was developed for a financial services company to visualize their business data and track key performance indicators in real-time.</p>
         
@@ -747,7 +747,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" class="img-fluid" alt="Marketing website">
+        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" class="img-fluid" alt="Marketing website" />
         <h4>Project Overview</h4>
         <p>This comprehensive digital marketing platform was created for a marketing agency to manage client campaigns, track performance, and generate reports.</p>
         
@@ -788,13 +788,18 @@
 
     <div class="row justify-content-center">
       <div class="col-lg-8">
-        <form action="https://formsubmit.co/ncamiso.nkuna@gmail.com" method="POST" id="contactForm" class="contact-form">
+        <form 
+          action="https://formsubmit.co/ncamiso.nkuna@gmail.com" 
+          method="POST" 
+          id="contactForm" 
+          class="contact-form"
+        >
           <!-- Disable captcha -->
-          <input type="hidden" name="_captcha" value="false">
-          <!-- Redirect after submit -->
-          <input type="hidden" name="_next" value="#thankyou">
+          <input type="hidden" name="_captcha" value="false" />
+          <!-- Redirect after submit, update this URL to your actual page -->
+          <input type="hidden" name="_next" value="https://yourdomain.com/#thankyou" /> 
           <!-- Subject for emails -->
-          <input type="hidden" name="_subject" value="New contact form submission from Frontend Studio">
+          <input type="hidden" name="_subject" value="New contact form submission from Frontend Studio" />
 
           <div class="mb-3">
             <input type="text" class="form-control" name="name" placeholder="Your Name" required>
@@ -862,7 +867,7 @@
         </ul>
       </div>
     </div>
-    <hr class="my-4 bg-light">
+    <hr class="my-4 bg-light" />
     <div class="text-center">
       <p class="mb-0">&copy; LocalBusinessWebDesign. All rights reserved.</p>
     </div>
@@ -873,8 +878,8 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 <script>
+  // Toggle mobile menu
   $(document).ready(function(){
-    // Mobile menu toggle
     $('.menu-toggle').click(function(){
       $('.nav-links').toggleClass('active');
       $(this).html($(this).html().includes('bars') ? 
@@ -886,7 +891,7 @@
       $('.nav-links').removeClass('active');
       $('.menu-toggle').html('<i class="fas fa-bars"></i>');
     });
-    
+
     // Smooth scrolling
     $('a[href*="#"]').on('click', function(e) {
       if ($(this).attr('href') === '#thankyou') return;
@@ -898,7 +903,7 @@
         'scrollTop': $target.offset().top - 80
       }, 800, 'swing');
     });
-    
+
     // Navbar background change on scroll
     $(window).scroll(function() {
       if ($(window).scrollTop() > 50) {
@@ -909,11 +914,31 @@
         $('header').css('box-shadow', '0 2px 10px rgba(0, 0, 0, 0.1)');
       }
     });
+
+    // Handle form submission with fetch
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault(); // prevent default form submission
+      const form = this;
+      const formData = new FormData(form);
+      
+      fetch(form.action, {
+        method: 'POST',
+        body: formData,
+      }).then(response => {
+        if (response.ok) {
+          alert('Thank you! Your message has been sent.');
+          form.reset();
+        } else {
+          alert('Oops! Something went wrong. Please try again.');
+        }
+      }).catch(error => {
+        alert('Network error. Please check your connection and try again.');
+      });
+    });
   });
 </script>
 
 </body>
-
 </html>
 
 
